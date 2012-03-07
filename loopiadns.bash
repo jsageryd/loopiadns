@@ -79,12 +79,15 @@ while [ ! -z "$1" ]; do
   # Get IP from DNS record
   dnsip=$(host -t A "${hostname}" | rev | cut -f 1 -d ' ' | rev)
 
+  # Write '(unknown)' if the DNS lookup does not return a valid IP address
+  ip_is_valid "${dnsip}" || dnsip="(unknown)"
+
   # If the IP has changed, update the DNS record
   if [ "${dnsip}" != "${myip}" ]; then
-    echo -n "[${hostname}]	"
-    curl -s --user "${auth}" "${url}"
-    echo
-    logger -t "Loopia DNS updater" "Updated Loopia DNS record for ${hostname}: ${dnsip} -> ${myip}"
+    result=$(curl -s --user "${auth}" "${url}")
+    logmsg="[${hostname}] ${dnsip} -> ${myip}: ${result}"
+    echo "$logmsg"
+    logger -t "Loopia DNS updater" "${logmsg}"
   else
     echo "[${hostname}]	IP address has not changed. No update needed."
   fi
