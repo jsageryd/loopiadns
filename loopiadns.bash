@@ -2,11 +2,7 @@
 
 # Loopia DNS updater
 
-# Script to automatically update DNS records at Loopia to match the current external IP address
-# j416 2009-06-18
-
 # Tests an IP address for validity
-#
 # Example:
 #  ip_is_valid IP_ADDRESS
 #  if [[ $? -eq 0 ]]; then echo good; else echo bad; fi
