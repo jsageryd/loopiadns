@@ -4,6 +4,7 @@ This is a script to automatically update DNS records at Loopia.
 
 - Supports multiple hosts
 - Only updates the records if the current IP has changed
+- Logs to syslog
 
 Usage
 ------------------
