@@ -86,11 +86,11 @@ while [ ! -z "$1" ]; do
   if [ "${dnsip}" != "${myip}" ]; then
     result=$(curl -s --user "${auth}" "${url}")
     logmsg="[${hostname}] ${dnsip} -> ${myip}: ${result}"
-    echo "$logmsg"
     logger -t "Loopia DNS updater" "${logmsg}"
   else
-    echo "[${hostname}]	IP address has not changed. No update needed."
+    logmsg="[${hostname}] ${dnsip}: no update needed"
   fi
+  echo "$logmsg"
 
   shift
 done
