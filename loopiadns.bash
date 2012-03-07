@@ -43,6 +43,7 @@ shift
 if [ -z "$1" ]; then
   echo 'Hostname not supplied.'
   echo 'Example: ./loopiadns.bash user:pass firstdomain.tld seconddomain.tld'
+  exit 1
 fi
 
 # Get IP address from Loopia
