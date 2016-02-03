@@ -1,13 +1,12 @@
-Loopia DNS updater
-===================
+# Loopia DNS updater
+
 This is a script to automatically update DNS records at Loopia.
 
 - Supports multiple hosts
 - Only updates the records if the current IP has changed
 - Logs to syslog
 
-Usage
-------------------
+## Usage
 ### Run once
 1. `./loopiadns.bash user:pass domain.tld [domain.tld ...]`
 
@@ -19,8 +18,7 @@ Usage
 */15 * * * * /some/path/to/loopiadns.bash user:pass firstdomain.tld seconddomain.tld
 ```
 
-Licence
-------------------
+## Licence
 Copyright (c) 2012 Johan Sageryd <j@1616.se>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
